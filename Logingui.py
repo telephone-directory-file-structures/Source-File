@@ -74,8 +74,7 @@ def hashrec(string):
 	print(string)
 	low=0
 	high=20
-	# print("enter the hashrec")
-	# print("lenght 1 : ",length)
+
 	while(length>20):
 		chunk=string[low:high]
 		binlength='{0:064b}'.format(20)
@@ -112,40 +111,42 @@ def hashrec(string):
 		obj2=compress(obj1)
 	hashis= '%08x' % (obj2)
 	print("Hash Generated :",hashis)
+	flag = 0
 	for lines in ahead:
 		words = lines.split("|")
 		if words[0] == hashis:
+			flag = 1
+			root.withdraw()
 			command = 'python3 dashboard.py '+words[1]+" "+words[2]+" "+words[3]+" "+words[4]+" "+words[5]+" "+words[6]+" "+words[7]
 			caller(command)
-	print("not found")
+			root.update()
+			root.deiconify()
+	if flag == 0:
+		print("not found")
 	# printtext()
 			
 def caller(command):
 	os.system(command)	
 
-	# hand=open('hashcontent.txt','a')
-	#hand.write('%08x%08x%08x%08x%08x' % (obj2[0],obj2[1],obj2[2],obj2[3],obj2[4])+" "+string+"\n")
-	# print("String last :",string)
-
-
 # ahead = open("hashcontnet.txt","r")
 ahead = open("hashcontent.txt","r")
 root = Tk()
+root.configure(background='#e9e4e6')
 root.geometry('500x500')
 root.title("Login GUI")
 
-label_0 = Label(root, text="LOGIN",width=20,font=("bold", 20))
+label_0 = Label(root, text="LOGIN",width=20,font=("bold", 20), background='#e9e4e6')
 label_0.place(x=80,y=53)
 
-label_1 = Label(root, text="Username",width=20,font=("bold", 10))
+label_1 = Label(root, text="Username",width=20,font=("bold", 10), background='#e9e4e6')
 label_1.place(x=80,y=130)
 
 entry_1 = Entry(root)
 entry_1.pack()
-entry_1.focus_set()
+entry_1.focus_set()	
 entry_1.place(x=240,y=130)
 
-label_2 = Label(root, text="Password",width=20,font=("bold", 10))
+label_2 = Label(root, text="Password",width=20,font=("bold", 10), background='#e9e4e6')
 label_2.place(x=68,y=180)
 
 entry_2 = Entry(root)
@@ -155,7 +156,7 @@ entry_2.place(x=240,y=180)
 
 
 
-b = Button(root, text='Login',width=20,bg='brown',fg='white', command=printtext).place(x=180,y=300)
-Button(root, text='Quit',width=20,bg='red',fg='white',command=dest).place(x=180,y=340)
+b = Button(root, text='Login',width=20,height=2,bg='#3bb4c1',fg='white', command=printtext).place(x=180,y=300)
+Button(root, text='Quit',width=20,height=2,bg='#3bb4c1',fg='white',command=dest).place(x=180,y=360)
 
 root.mainloop()
