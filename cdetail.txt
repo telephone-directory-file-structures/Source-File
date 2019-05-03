@@ -1,4 +1,0 @@
-F14|Ravi|Toshniwal|1234567893|ravi@gmail.com|bangalore|123.com|Ravi|ravi
-F14|Ravi|Toshniwal|1234567893|ravi@gmail.com|bangalore|123.com|Ravi|ravi
-F15|Pavan|CV|123567894|pavan@gmail.com|bangalore|123.com|Pavan|pavan
-F16|Nimesh|M|1234567895|nimesh@gmail.com|bangalore|123.com|Nimesh|nimesh
