@@ -1,0 +1,5 @@
+3684528fd|F01|karthikeya|gs|1234567891|karthiekya@gmail.com|BLR|123.com
+9c43c271|F02|sanjay|kumar|1234567892|sanjay@gmail.com|BLR|123.com
+a83dd141|F03|ravi|toshniwal|1234567893|ravi@gmail.com|BLR|123.com
+63557bfc|F04|srujana|gowda|1234566789|srujana@gmail.com|BLR|123.com
+b5c90f01|F05|B|Bobby|1234567892|b@gmail.com|BLR|123.com
