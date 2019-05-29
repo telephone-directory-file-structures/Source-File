@@ -6,13 +6,17 @@ hashval=""
 
 record=[]
 record=open("hashcontent.txt").readlines()
-# print("hashcontentfile",record)
+
+
+print("hashcontentfile",record)
 
 def printtext():
     global hashval
     global entry_1,entry_2,entry_3,entry_4,entry_5,entry_6,entry_7,entry_8,entry_9
     global string
     txt_fil=open("hashcontent.txt","a")
+    fs=open("secondary.txt","a")
+    fp=open("secondaryph.txt","a")
     ssn = entry_1.get()
     fname = entry_2.get()
     lname = entry_3.get()
@@ -22,18 +26,22 @@ def printtext():
     website = entry_7.get()
     # uname = entry_8.get()
     # password = entry_9.get()
-    entry=hashval+'|'+ssn+'|'+fname+'|'+lname+'|'+ph+'|'+email+'|'+add+'|'+website+'|'+'\n'
+    entry=hashval+'|'+ssn+'|'+fname+'|'+lname+'|'+ph+'|'+email+'|'+add+'|'+website
+   
     txt_fil.write(entry)
     txt_fil.close()
+    os.system("python indexing.py")
+    root.destroy()
 
 
 # idx_file=open("indexfile.txt","r")
-txt_fil="hashcontent.txt"
+txt_file="hashcontent.txt"
 
 ssn = sys.argv[1]
 fname=lname=add=ph=website=email=""
 l=[]
 flag=0
+key=ssn
 idx_f=open("indexfile.txt","r").readlines()
 # print(idx_f)
 for line in idx_f:
@@ -60,10 +68,34 @@ for line in idx_f:
         file1=open("hashcontent.txt","w")
         file_size=len(record)
         record2=[]
-        for i in range(1,file_size+1):
+        # ph_temp_record=[]
+        # se_temp_record=[]
+        # for z,x in enumerate(record3):
+        #     if re.match(x,key):
+        #         continue
+           
+        #     se_temp_record.append(record3[z])
+        # fs=open("secondary.txt","w")
+        # fs.writelines(se_temp_record)
+        # fs.close()
 
-            if(i!=n):
-            	record2.append(record[i-1])
+        # for z,x in enumerate(record4):
+        #     if re.match(x,key):
+        #         continue
+        #     print("testing last bar",z,x)
+        #     ph_temp_record.append(record4[z])
+        # fp=open("secondaryph.txt","w")
+        # fp.writelines(ph_temp_record)
+        # fp.close()
+
+            
+
+        
+        
+        for i in range(0,file_size):
+
+            if(i!=n-1):
+                record2.append(record[i])
         # print("record 2 before writing",record2)
         file1.writelines(record2)
         file1.close()

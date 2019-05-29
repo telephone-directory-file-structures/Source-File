@@ -1,6 +1,7 @@
 import sys
 import os
 import textwrap
+import re
 from tkinter import *
 
 def printtext():
@@ -24,13 +25,22 @@ def printtext():
 	entry_7.delete(first=0,last=100)
 	entry_8.delete(first=0,last=100)
 	entry_9.delete(first=0,last=100)
+	record=[]
+	record=open("indexfile.txt").readlines()
+	for i in record:
+		if re.match(i,ssn):
+			print("Primary key constraint failed")
+			root.destroy()
+	
+
+	root.destroy()
+
 	string_d = ssn+"|"+fname+"|"+lname+"|"+ph+"|"+email+"|"+add+"|"+website
 	string_a = uname+"|"+password
 	string_sn = fname+"|"+lname+"|"+ssn+"\n"
 	string_ph = ph+"|"+ssn+"\n"
 	print(string_sn)
 	shead.write(string_sn)
-
 	phead.write(string_ph)
 
 	string_a= (''.join(format(ord(x), 'b') for x in string_a))
@@ -39,12 +49,12 @@ def printtext():
 	string = hashval+"|"+string_d+"\n"
 	ahead.write(string)
 
-def dest():
 	ahead.close()
 	shead.close()
 	phead.close()
-	os.system("python3 indexing.py hashcontent.txt")
+	os.system("python indexing.py")
 	root.destroy()
+
 
 
 def wordret(wa,wb,wc):
@@ -217,6 +227,6 @@ entry_9.place(x=240,y=620)
 
 
 b = Button(root, text='Submit',width=20,height=2,bg='#3bb4c1',fg='white', command=printtext).place(x=180,y=650)
-Button(root,text='Quit',width=20,height=2,bg='#3bb4c1',fg='white', command=dest).place(x=180, y= 700)
+#Button(root,text='Quit',width=20,height=2,bg='#3bb4c1',fg='white', command=dest).place(x=180, y= 700)
 
 root.mainloop()	

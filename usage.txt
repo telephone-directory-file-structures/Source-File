@@ -1,0 +1,3 @@
+### The user has to start from the entry page to either signup or login into the register.
+$python3 entrypage.py
+### Then the user can select the choices according to their need. 
