@@ -37,5 +37,5 @@ As the system hardware requirements are minimal. User needs only a computer as t
 
 ### Software Requirement
 •	Python3
-•	Tkinter librar
+•	Tkinter library
 
